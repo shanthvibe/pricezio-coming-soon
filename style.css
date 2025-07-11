@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'DM Serif Display', serif;
+  background: black;
+  color: white;
+}
+#bgCanvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.logo {
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.tagline {
+  margin-top: 20px;
+  font-size: 24px;
+}
+footer {
+  position: absolute;
+  bottom: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
