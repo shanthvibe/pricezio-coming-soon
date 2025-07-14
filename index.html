@@ -4,29 +4,244 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricezio | Coming Soon</title>
-  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/9468/9468590.png" />
   <link href="https://fonts.googleapis.com/css2?family=Yu+Gothic+UI:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .logo-img-large {
+      position: absolute;
+      top: 40px;
+      width: 200px;
+    }
+
+    .tagline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    .tagline {
+      font-size: 24px;
+      line-height: 1.5;
+      animation: wiggle 1.5s ease-in-out infinite;
+      color: white;
+      max-width: 90%;
+      white-space: pre-line;
+    }
+
+    .play-btn {
+      margin-top: 40px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .play-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: black;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+
+    .bottom-links {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+    }
+
+    .x-follow {
+      color: white;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 18px;
+      }
+
+      .play-btn {
+        width: 50px;
+        height: 50px;
+      }
+
+      .play-btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .logo-img-large {
+        width: 160px;
+      }
+    }
+  </style>
 </head>
 <body>
   <canvas id="bgCanvas"></canvas>
 
-  <div class="content">
+  <div class="wrapper">
     <img src="logo.png" alt="Pricezio Logo" class="logo-img-large" />
-    <p class="tagline wiggle">"great things are coming"</p>
-    <div class="x-follow">
-     <span>Follow us on: </span>
-<a class="x-icon" href="https://x.com/pricezio99575" target="_blank" aria-label="X Profile">
-    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" class="bi bi-twitter-x" viewBox="0 0 16 16">
-        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-    </svg>
-</a>
+    <div class="tagline-container">
+      <p class="tagline">Great things are on the way.
+Hit play, sit back, and enjoy the sound of our station</p>
+
+      <button class="play-btn" onclick="togglePlay()" aria-label="Play/Pause">
+        <svg viewBox="0 0 16 16"><path d="M6 4l6 4-6 4V4z"/></svg>
+      </button>
     </div>
-    <footer>
-      © 2025 Pricezio. All rights reserved | with ❤️ <a href="https://www.instagram.com/shanthchens/" target="_blank"><strong>Shanth</strong></a>
-    </footer>
+
+    <div class="bottom-links">
+      <div class="x-follow">
+        <span>Follow us on: </span>
+        <a class="x-icon" href="https://x.com/pricezio99575" target="_blank" aria-label="X Profile">
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg>
+        </a>
+      </div>
+
+      <footer>
+        © 2025 ShanAI® Pvt. Ltd. All rights reserved | with ❤️ 
+        <a href="https://www.instagram.com/shanthchens/" target="_blank"><strong>Shanth</strong></a>
+      </footer>
+    </div>
   </div>
 
-  <script src="background.js"></script>
+  <audio id="radio" autoplay preload="auto">
+    <source src="https://funasia.streamguys1.com/live2" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [], shootingStars = [], numStars = 100;
+
+    function init() {
+      resizeCanvas();
+      stars = [];
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5,
+          dx: (Math.random() - 0.5) * 1.5, // faster speed
+          dy: (Math.random() - 0.5) * 1.5
+        });
+      }
+      animate();
+      spawnShootingStar();
+    }
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      init();
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.x += star.dx;
+        star.y += star.dy;
+
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+      });
+
+      shootingStars.forEach((s, i) => {
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(s.x - s.len * s.dx, s.y - s.len * s.dy);
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        s.x += s.dx * s.speed;
+        s.y += s.dy * s.speed;
+        if (s.x > canvas.width || s.y > canvas.height) shootingStars.splice(i, 1);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    function spawnShootingStar() {
+      setInterval(() => {
+        shootingStars.push({
+          x: Math.random() * canvas.width,
+          y: 0,
+          len: 100,
+          dx: 1,
+          dy: 1,
+          speed: 8
+        });
+      }, 3000);
+    }
+
+    init();
+
+    const audio = document.getElementById('radio');
+    const button = document.querySelector('.play-btn');
+    const svg = button.querySelector('svg');
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        svg.innerHTML = '<path d="M5 3h2v10H5zm4 0h2v10H9z"/>';
+      } else {
+        audio.pause();
+        svg.innerHTML = '<path d="M6 4l6 4-6 4V4z"/>';
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      audio.play().catch(() => {
+        svg.innerHTML = '<path d="M6 4l6 4-6 4V4z"/>';
+      });
+    });
+  </script>
 </body>
 </html>

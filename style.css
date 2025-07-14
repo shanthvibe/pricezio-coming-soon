@@ -4,94 +4,122 @@
   box-sizing: border-box;
 }
 
-body, html {
+html, body {
   height: 100%;
-  overflow: auto; /* ✅ Allows scrolling */
   font-family: 'Yu Gothic UI', sans-serif;
   background: black;
   color: white;
+  overflow: hidden;
 }
 
 #bgCanvas {
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
 }
 
-.content {
+.wrapper {
   position: relative;
-  z-index: 1;
-  min-height: 100vh; /* ✅ Ensures content stretches */
+  z-index: 2;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   padding: 20px;
 }
 
 .logo-img-large {
-  width: 200px;
+  width: 180px;
   height: auto;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 
-.tagline {
-  font-size: 24px;
-  margin-bottom: 30px;
-  animation: wiggle 1.5s ease-in-out infinite;
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-1deg); }
-  50% { transform: rotate(1deg); }
+.tagline {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 90vw;
+}
+
+.play-btn {
+  background: white;
+  color: black;
+  border: none;
+  padding: 12px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: black;
+}
+
+.bottom-links {
+  margin-top: auto;
+  text-align: center;
+  padding-bottom: 20px;
 }
 
 .x-follow {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-.x-icon img {
-  width: 28px;
-  height: 28px;
-  filter: invert(1);
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 footer {
-  position: relative; /* ✅ Changed from absolute */
-  bottom: 0;
-  font-size: 14px;
+  font-size: 13px;
   color: #ccc;
-  text-align: center;
-  margin-top: 30px;
-  z-index: 2;
-  padding: 10px 15px;
-  width: 100%;
 }
 
 footer a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
 }
 
-/* ✅ Responsive tweaks for mobile */
 @media (max-width: 768px) {
   .tagline {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .play-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-btn svg {
+    width: 20px;
+    height: 20px;
   }
 
   .x-follow {
-    font-size: 14px;
+    font-size: 12px;
+    flex-direction: column;
   }
 
   footer {
     font-size: 12px;
-    padding: 8px;
   }
 }
