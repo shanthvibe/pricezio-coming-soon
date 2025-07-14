@@ -6,7 +6,7 @@
 
 body, html {
   height: 100%;
-  overflow: hidden;
+  overflow: auto; /* ✅ Allows scrolling */
   font-family: 'Yu Gothic UI', sans-serif;
   background: black;
   color: white;
@@ -22,7 +22,7 @@ body, html {
 .content {
   position: relative;
   z-index: 1;
-  height: 100vh;
+  min-height: 100vh; /* ✅ Ensures content stretches */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,14 +63,35 @@ body, html {
 }
 
 footer {
-  position: absolute;
-  bottom: 30px;
+  position: relative; /* ✅ Changed from absolute */
+  bottom: 0;
   font-size: 14px;
   color: #ccc;
+  text-align: center;
+  margin-top: 30px;
+  z-index: 2;
+  padding: 10px 15px;
+  width: 100%;
 }
 
 footer a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+/* ✅ Responsive tweaks for mobile */
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 18px;
+  }
+
+  .x-follow {
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
