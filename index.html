@@ -30,7 +30,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 100px;
+      margin-top: 140px;
       margin-bottom: 100px;
     }
 
@@ -44,7 +44,7 @@
     }
 
     .play-btn {
-      margin-top: 40px;
+      margin-top: 60px;
       width: 60px;
       height: 60px;
       border-radius: 50%;
@@ -116,8 +116,8 @@
   <div class="wrapper">
     <img src="logo.png" alt="Pricezio Logo" class="logo-img-large" />
     <div class="tagline-container">
-      <p class="tagline">Great things are on the way.
-Hit play, sit back, and enjoy the sound of our station</p>
+      <p class="tagline">"Great things are on the way.
+Hit play, sit back, and enjoy the sound of our station"</p>
 
       <button class="play-btn" onclick="togglePlay()" aria-label="Play/Pause">
         <svg viewBox="0 0 16 16"><path d="M6 4l6 4-6 4V4z"/></svg>
@@ -160,7 +160,7 @@ Hit play, sit back, and enjoy the sound of our station</p>
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 1.5,
-          dx: (Math.random() - 0.5) * 1.5, // faster speed
+          dx: (Math.random() - 0.5) * 1.5,
           dy: (Math.random() - 0.5) * 1.5
         });
       }
