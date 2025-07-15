@@ -69,9 +69,11 @@
     }
 
     .bottom-links {
-      position: absolute;
-      bottom: 20px;
+      position: relative;
+      margin-top: auto;
+      padding-top: 20px;
       text-align: center;
+      width: 100%;
     }
 
     .x-follow {
@@ -107,6 +109,12 @@
       .logo-img-large {
         width: 160px;
       }
+
+      .bottom-links {
+        position: relative;
+        margin-top: 40px;
+        padding: 20px 0;
+      }
     }
   </style>
 </head>
@@ -116,8 +124,8 @@
   <div class="wrapper">
     <img src="logo.png" alt="Pricezio Logo" class="logo-img-large" />
     <div class="tagline-container">
-      <p class="tagline">"Great things are on the way.
-Hit play, sit back, and enjoy the sound of our station"</p>
+      <p class="tagline">Great things are on the way.
+Hit play, sit back, and enjoy the sound of our station</p>
 
       <button class="play-btn" onclick="togglePlay()" aria-label="Play/Pause">
         <svg viewBox="0 0 16 16"><path d="M6 4l6 4-6 4V4z"/></svg>
