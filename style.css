@@ -68,4 +68,58 @@ html, body {
   height: 60px;
 }
 
-.pl
+.play-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: black;
+}
+
+.bottom-links {
+  margin-top: auto;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.x-follow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+footer {
+  font-size: 13px;
+  color: #ccc;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .tagline {
+    font-size: 16px;
+  }
+
+  .play-btn {
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .x-follow {
+    font-size: 12px;
+    flex-direction: column;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}

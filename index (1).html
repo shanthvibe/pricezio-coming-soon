@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricezio | Coming Soon</title>
+  <title>Pricezio | AI that shops with you</title>
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/9468/9468590.png" />
   <link href="https://fonts.googleapis.com/css2?family=Yu+Gothic+UI:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
@@ -157,13 +157,13 @@ Hit play, sit back, and enjoy the sound of our station</p>
       </div>
 
       <footer>
-        © 2025 ShanAI® Pvt. Ltd. All rights reserved | with ❤️ 
-        <a href="https://www.instagram.com/shanthchens/" target="_blank"><strong>Shanth</strong></a>
+        © 2025 Eighteen26 Forge® LLP. All rights reserved | with ❤️ 
+        <a href="https://www.instagram.com/heyshanth/" target="_blank"><strong>Shanth</strong></a>
       </footer>
     </div>
   </div>
 
-  <audio id="radio" preload="auto" playsinline>
+  <audio id="radio" autoplay preload="auto">
     <source src="https://funasia.streamguys1.com/live2" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -259,16 +259,10 @@ Hit play, sit back, and enjoy the sound of our station</p>
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const playAttempt = () => {
-        audio.play().then(() => {
-          svg.innerHTML = '<path d="M5 3h2v10H5zm4 0h2v10H9z"/>';
-        }).catch(() => {
-          svg.innerHTML = '<path d="M6 4l6 4-6 4V4z"/>';
-        });
-      };
-
-      document.body.addEventListener('click', playAttempt, { once: true });
+    window.addEventListener('DOMContentLoaded', () => {
+      audio.play().catch(() => {
+        svg.innerHTML = '<path d="M6 4l6 4-6 4V4z"/>';
+      });
     });
   </script>
 </body>
