@@ -9,7 +9,8 @@ html, body {
   font-family: 'Yu Gothic UI', sans-serif;
   background: black;
   color: white;
-  overflow: hidden;
+  overflow-x: hidden; /* Changed from hidden to only hide horizontal overflow */
+  overflow-y: auto; /* allow vertical scroll on mobile */
 }
 
 #bgCanvas {
@@ -28,6 +29,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between; /* ensures footer visible */
   padding: 20px;
 }
 
@@ -75,9 +77,9 @@ html, body {
 }
 
 .bottom-links {
-  margin-top: auto;
   text-align: center;
   padding-bottom: 20px;
+  width: 100%;
 }
 
 .x-follow {
@@ -87,6 +89,7 @@ html, body {
   gap: 10px;
   font-size: 14px;
   margin-bottom: 10px;
+  flex-wrap: wrap; /* makes sure it doesn’t go off screen */
 }
 
 footer {
@@ -117,9 +120,14 @@ footer a {
   .x-follow {
     font-size: 12px;
     flex-direction: column;
+    gap: 6px;
   }
 
   footer {
     font-size: 12px;
+  }
+
+  .wrapper {
+    padding-bottom: 40px; /* adds space for footer visibility */
   }
 }
