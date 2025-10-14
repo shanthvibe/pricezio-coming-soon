@@ -42,10 +42,13 @@
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
+      width: 100%;
+      max-width: 500px;
     }
 
     .search-container input {
-      width: 400px;
+      flex: 1;
+      min-width: 240px;
       padding: 10px 15px;
       border: 2px solid white;
       border-radius: 8px;
@@ -75,8 +78,8 @@
     }
 
     .tagline-container {
-      margin-top: 40px;
-      margin-bottom: 100px;
+      margin-top: 50px;
+      text-align: center;
     }
 
     .tagline {
@@ -85,12 +88,41 @@
       animation: wiggle 1.5s ease-in-out infinite;
       color: white;
       max-width: 90%;
+      margin: 0 auto 25px;
       white-space: pre-line;
     }
 
     @keyframes wiggle {
       0%, 100% { transform: rotate(-1deg); }
       50% { transform: rotate(1deg); }
+    }
+
+    /* 🎵 Centered Play Button */
+    .play-btn-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .play-btn {
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+      width: 70px;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .play-btn:hover {
+      background: #ddd;
+      transform: scale(1.1);
     }
 
     .bottom-links {
@@ -108,6 +140,7 @@
       justify-content: center;
       align-items: center;
       gap: 6px;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -125,18 +158,27 @@
         width: 150px;
       }
 
-      .search-container input {
-        width: 85%;
-        font-size: 14px;
+      .search-container {
+        flex-direction: column;
+        gap: 10px;
       }
 
+      .search-container input,
       .search-container button {
         width: 85%;
-        padding: 10px;
       }
 
       .tagline {
         font-size: 18px;
+      }
+
+      .play-btn {
+        width: 60px;
+        height: 60px;
+      }
+
+      footer {
+        font-size: 12px;
       }
     }
   </style>
@@ -154,19 +196,23 @@
     </div>
 
     <div class="tagline-container">
-      <p class="tagline">Great things are on the way.
-Hit play, sit back, and enjoy the sound of our station</p>
+      <p class="tagline">
+        Great things are on the way.
+        Hit play, sit back, and enjoy the sound of our station
+      </p>
 
-      <button class="play-btn" onclick="togglePlay()" aria-label="Play/Pause">
-        <svg viewBox="0 0 16 16"><path d="M6 4l6 4-6 4V4z"/></svg>
-      </button>
+      <div class="play-btn-container">
+        <button class="play-btn" onclick="togglePlay()" aria-label="Play/Pause">
+          <svg viewBox="0 0 16 16"><path d="M6 4l6 4-6 4V4z"/></svg>
+        </button>
+      </div>
     </div>
 
     <div class="bottom-links">
       <div class="x-follow">
         <span>Follow us on:</span>
         <a class="x-icon" href="https://x.com/pricezio99575" target="_blank" aria-label="X Profile">
-          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="white" viewBox="0 0 16 16">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="white" viewBox="0 0 16 16">
             <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
           </svg>
         </a>
