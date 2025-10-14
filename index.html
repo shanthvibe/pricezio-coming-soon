@@ -324,8 +324,10 @@
     function redirectToFlash() {
       const userLink = document.getElementById('productLink').value.trim();
       if (userLink) {
-        const encoded = encodeURIComponent(userLink);
-        window.location.href = `https://flash.co/${encoded}`;
+        // Remove protocol (https:// or http://) for cleaner URL
+        const cleanLink = userLink.replace(/^https?:\/\//, '');
+        // Redirect to pricezio.com with the original link path
+        window.location.href = `https://pricezio.com/${cleanLink}`;
       } else {
         alert("Please paste a valid Amazon, Myntra, or Flipkart product link!");
       }
