@@ -16,6 +16,7 @@
       color: white;
       overflow: hidden;
     }
+
     .wrapper {
       display: flex;
       flex-direction: column;
@@ -26,11 +27,13 @@
       text-align: center;
       padding: 20px;
     }
+
     .logo-img-large {
       position: absolute;
       top: 40px;
       width: 200px;
     }
+
     /* 🔍 Search Bar */
     .search-container {
       margin-top: 150px;
@@ -42,6 +45,7 @@
       width: 100%;
       max-width: 500px;
     }
+
     .search-container input {
       flex: 1;
       min-width: 240px;
@@ -53,9 +57,11 @@
       font-size: 16px;
       outline: none;
     }
+
     .search-container input::placeholder {
       color: #aaa;
     }
+
     .search-container button {
       background: white;
       color: black;
@@ -66,13 +72,16 @@
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     .search-container button:hover {
       background: #f1f1f1;
     }
+
     .tagline-container {
       margin-top: 50px;
       text-align: center;
     }
+
     .tagline {
       font-size: 22px;
       line-height: 1.5;
@@ -82,10 +91,12 @@
       margin: 0 auto 25px;
       white-space: pre-line;
     }
+
     @keyframes wiggle {
       0%, 100% { transform: rotate(-1deg); }
       50% { transform: rotate(1deg); }
     }
+
     /* 🎵 Centered Play Button */
     .play-btn-container {
       display: flex;
@@ -93,6 +104,7 @@
       align-items: center;
       width: 100%;
     }
+
     .play-btn {
       background: white;
       color: black;
@@ -107,10 +119,12 @@
       align-items: center;
       transition: transform 0.3s ease, background 0.3s ease;
     }
+
     .play-btn:hover {
       background: #ddd;
       transform: scale(1.1);
     }
+
     .bottom-links {
       position: relative;
       margin-top: auto;
@@ -118,6 +132,7 @@
       text-align: center;
       width: 100%;
     }
+
     .x-follow {
       color: white;
       margin-bottom: 10px;
@@ -127,32 +142,41 @@
       gap: 6px;
       flex-wrap: wrap;
     }
+
     footer {
       color: #ccc;
       font-size: 14px;
     }
+
     footer a {
       color: white;
       text-decoration: none;
     }
+
     @media (max-width: 768px) {
       .logo-img-large {
         width: 150px;
       }
+
       .search-container {
         flex-direction: column;
         gap: 10px;
       }
-      .search-container input, .search-container button {
+
+      .search-container input,
+      .search-container button {
         width: 85%;
       }
+
       .tagline {
         font-size: 18px;
       }
+
       .play-btn {
         width: 60px;
         height: 60px;
       }
+
       footer {
         font-size: 12px;
       }
@@ -173,7 +197,8 @@
 
     <div class="tagline-container">
       <p class="tagline">
-        Great things are on the way. Hit play, sit back, and enjoy the sound of our station
+        Great things are on the way.
+        Hit play, sit back, and enjoy the sound of our station
       </p>
 
       <div class="play-btn-container">
@@ -194,7 +219,7 @@
       </div>
 
       <footer>
-        © 2025 Eighteen26 Forge® LLP. All rights reserved | with ❤️
+        © 2025 Eighteen26 Forge® LLP. All rights reserved | with ❤️ 
         <a href="https://www.instagram.com/heyshanth/" target="_blank"><strong>Shanth</strong></a>
       </footer>
     </div>
