@@ -9,8 +9,9 @@ html, body {
   font-family: 'Yu Gothic UI', sans-serif;
   background: black;
   color: white;
-  overflow-x: hidden; /* Changed from hidden to only hide horizontal overflow */
-  overflow-y: auto; /* allow vertical scroll on mobile */
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #bgCanvas {
@@ -28,9 +29,10 @@ html, body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between; /* ensures footer visible */
   padding: 20px;
+  padding-bottom: 80px; /* ensures space for footer visibility */
 }
 
 .logo-img-large {
@@ -44,7 +46,9 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  flex: 1;
 }
 
 .tagline {
@@ -68,6 +72,7 @@ html, body {
   justify-content: center;
   width: 60px;
   height: 60px;
+  margin: 0 auto; /* perfectly center the button */
 }
 
 .play-btn svg {
@@ -78,23 +83,27 @@ html, body {
 
 .bottom-links {
   text-align: center;
-  padding-bottom: 20px;
   width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
 }
 
 .x-follow {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 14px;
-  margin-bottom: 10px;
-  flex-wrap: wrap; /* makes sure it doesn’t go off screen */
+  margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 footer {
   font-size: 13px;
   color: #ccc;
+  margin-bottom: env(safe-area-inset-bottom);
+  padding-bottom: 10px;
 }
 
 footer a {
@@ -128,6 +137,6 @@ footer a {
   }
 
   .wrapper {
-    padding-bottom: 40px; /* adds space for footer visibility */
+    padding-bottom: 100px; /* extra breathing room for footer */
   }
 }
